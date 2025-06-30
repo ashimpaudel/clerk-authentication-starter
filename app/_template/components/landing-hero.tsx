@@ -1,108 +1,85 @@
 import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
-import screenshotDevices from "../images/user-button@2xrl.webp";
-import signIn from "../images/sign-in@2xrl.webp";
-import verify from "../images/verify@2xrl.webp";
-import userButton2 from "../images/user-button-2@2xrl.webp";
-import signUp from "../images/sign-up@2xrl.webp";
-import logo from "../images/logo.png";
-import "../styles/landing.css";
-import Image from "next/image";
 import Link from "next/link";
 import { ClerkLogo } from "./clerk-logo";
 import { NextLogo } from "./next-logo";
 import { DeployButton } from "./deploy-button";
 
-export function LandingHero() {
+export function ProductHero() {
   return (
-    <main className="bg-[#FAFAFA] relative">
-      <div className="w-full bg-white max-w-[75rem] mx-auto flex flex-col border-l border-r border-[#F2F2F2] row-span-3">
-        <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-[#F2F2F2]" />
+    <main className="bg-gradient-to-br from-green-50 to-blue-50 relative min-h-screen">
+      <div className="w-full bg-white/80 backdrop-blur-sm max-w-[75rem] mx-auto flex flex-col border-l border-r border-[#F2F2F2]">
 
-        <div className="px-12 py-16 border-b border-[#F2F2F4] relative z-10">
-          <div className="flex items-center gap-8">
-            <div className="bg-[#F4F4F5] px-4 py-3 rounded-full inline-flex gap-4">
-              <ClerkLogo />
-              <div aria-hidden className="w-px h-6 bg-[#C7C7C8]" />
-              <NextLogo />
+        {/* Header */}
+        <div className="px-12 py-6 border-b border-[#F2F2F4] relative z-10">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-8">
+              <div className="text-2xl font-bold text-green-600">
+                EcoTech
+              </div>
+              <nav className="hidden md:flex gap-6">
+                <Link href="#products" className="text-gray-600 hover:text-green-600">Products</Link>
+                <Link href="#about" className="text-gray-600 hover:text-green-600">About</Link>
+                <Link href="#contact" className="text-gray-600 hover:text-green-600">Contact</Link>
+              </nav>
             </div>
-            <DeployButton />
+            <div className="flex items-center gap-4">
+              <SignedOut>
+                <SignInButton mode="modal">
+                  <button className="px-4 py-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors">
+                    Sign In
+                  </button>
+                </SignInButton>
+              </SignedOut>
+              <SignedIn>
+                <Link href="/dashboard" className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                  Dashboard
+                </Link>
+              </SignedIn>
+            </div>
           </div>
         </div>
 
-        <Image
-          alt="Device"
-          className="size-64 bg-transparent absolute left-1/2 -translate-x-[23.75rem] -top-6 h-[51.375rem] object-contain w-[39.0625rem]"
-          src={logo}
-          unoptimized
-        />
-
-        <div className="p-10 border-b border-[#F2F2F2]">
-          <h1 className="text-5xl font-bold tracking-tight text-[#131316] relative">
-            Auth starts here
+        {/* Hero Content */}
+        <div className="px-12 py-24 text-center">
+          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+            Sustainable Tech for a 
+            <span className="text-green-600"> Better Tomorrow</span>
           </h1>
-
-          <p className="text-[#5E5F6E] pt-3 pb-6 max-w-[30rem] text-[1.0625rem] relative">
-            A simple and powerful Next.js template featuring authentication and
-            user management powered by Clerk.
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Discover eco-friendly technology products that don't compromise on performance. 
+            From solar chargers to biodegradable phone cases, we're revolutionizing how you interact with technology.
           </p>
-          <div className="relative flex gap-3">
-            <SignedIn>
-              <Link
-                href="/dashboard"
-                className="px-4 py-2 rounded-full bg-[#131316] text-white text-sm font-semibold"
-              >
-                Dashboard
-              </Link>
-            </SignedIn>
-            <SignedOut>
-              <SignInButton>
-                <button className="px-4 py-2 rounded-full bg-[#131316] text-white text-sm font-semibold">
-                  Sign in
-                </button>
-              </SignInButton>
-            </SignedOut>
+
+          <div className="flex gap-4 justify-center mb-12">
+            <Link href="#products" className="px-8 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold">
+              Shop Now
+            </Link>
+            <Link href="#about" className="px-8 py-4 border border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition-colors font-semibold">
+              Learn More
+            </Link>
           </div>
-        </div>
-        <div className="flex gap-8 w-full h-[41.25rem] scale-[1.03]">
-          <div className="space-y-8 translate-y-12">
-            <Image
-              alt="Device"
-              src={signUp}
-              unoptimized
-              className="flex-none rounded-xl bg-white shadow-[0_5px_15px_rgba(0,0,0,0.08),0_15px_35px_-5px_rgba(25,28,33,0.2)] ring-1 ring-gray-950/5"
-            />
-          </div>
-          <div className="space-y-8 -translate-y-4">
-            <Image
-              alt="Device"
-              src={verify}
-              unoptimized
-              className="flex-none rounded-xl bg-white shadow-[0_5px_15px_rgba(0,0,0,0.08),0_15px_35px_-5px_rgba(25,28,33,0.2)] ring-1 ring-gray-950/5"
-            />
-            <Image
-              alt="Device"
-              src={userButton2}
-              unoptimized
-              className="flex-none rounded-xl bg-white shadow-[0_5px_15px_rgba(0,0,0,0.08),0_15px_35px_-5px_rgba(25,28,33,0.2)] ring-1 ring-gray-950/5"
-            />
-          </div>
-          <div className="space-y-8 -translate-y-[22.5rem]">
-            <Image
-              alt="Device"
-              src={signIn}
-              unoptimized
-              className="flex-none rounded-xl bg-white shadow-[0_5px_15px_rgba(0,0,0,0.08),0_15px_35px_-5px_rgba(25,28,33,0.2)] ring-1 ring-gray-950/5"
-            />
-            <Image
-              alt="Device"
-              src={screenshotDevices}
-              unoptimized
-              className="flex-none rounded-xl bg-white shadow-[0_5px_15px_rgba(0,0,0,0.08),0_15px_35px_-5px_rgba(25,28,33,0.2)] ring-1 ring-gray-950/5"
-            />
+
+          {/* Hero Image */}
+          <div className="relative max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl p-8 shadow-2xl">
+              <div className="bg-white rounded-xl p-6 grid grid-cols-3 gap-4">
+                <div className="bg-green-100 rounded-lg p-4 text-center">
+                  <div className="w-12 h-12 bg-green-500 rounded-full mx-auto mb-2"></div>
+                  <p className="text-sm font-semibold">Solar Chargers</p>
+                </div>
+                <div className="bg-blue-100 rounded-lg p-4 text-center">
+                  <div className="w-12 h-12 bg-blue-500 rounded-full mx-auto mb-2"></div>
+                  <p className="text-sm font-semibold">Eco Cases</p>
+                </div>
+                <div className="bg-purple-100 rounded-lg p-4 text-center">
+                  <div className="w-12 h-12 bg-purple-500 rounded-full mx-auto mb-2"></div>
+                  <p className="text-sm font-semibold">Green Gadgets</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div className="absolute left-0 right-0 bottom-0 h-[18.75rem] bg-gradient-to-t from-white" />
     </main>
   );
 }

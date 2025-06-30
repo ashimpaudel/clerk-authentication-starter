@@ -1,15 +1,16 @@
+
 import { Metadata } from "next";
 
 export const templateMetadata: Metadata = {
-  metadataBase: new URL("https://clerk-nextjs-app-router.vercel.app/"),
-  title: "Next.js Clerk Template",
+  metadataBase: new URL("https://ecotech-store.vercel.app/"),
+  title: "EcoTech - Sustainable Technology for a Better Tomorrow",
   description:
-    "A simple and powerful Next.js template featuring authentication and user management powered by Clerk.",
+    "Discover eco-friendly technology products that don't compromise on performance. Solar chargers, biodegradable cases, and sustainable gadgets.",
   openGraph: { images: ["/og.png"] },
 };
 
 // Default metadata for when template is removed
 export const defaultMetadata: Metadata = {
-  title: "My App",
-  description: "My Next.js app with Clerk authentication",
+  title: "EcoTech Store",
+  description: "Sustainable technology products for conscious consumers",
 };
